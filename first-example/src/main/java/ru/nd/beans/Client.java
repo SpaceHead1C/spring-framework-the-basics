@@ -1,4 +1,4 @@
-package ru.nd;
+package ru.nd.beans;
 
 public class Client {
     private String id;
