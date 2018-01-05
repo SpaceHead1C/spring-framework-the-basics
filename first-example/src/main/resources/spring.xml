@@ -11,7 +11,7 @@
         <constructor-arg>
             <bean class="java.util.Date"/>
         </constructor-arg>
-        <constructor-arg value="dateFormat"/>
+        <constructor-arg ref="dateFormat"/>
     </bean>
     <bean id="app" class="ru.nd.App">
         <constructor-arg ref="client"/>
