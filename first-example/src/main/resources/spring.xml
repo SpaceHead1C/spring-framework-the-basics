@@ -11,9 +11,11 @@
         <constructor-arg>
             <bean class="java.util.Date"/>
         </constructor-arg>
+        <constructor-arg value="dateFormat"/>
     </bean>
     <bean id="app" class="ru.nd.App">
         <constructor-arg ref="client"/>
         <constructor-arg ref="eventLogger"/>
     </bean>
+    <bean id="dateFormat" class="java.text.DateFormat" factory-method="getDateTimeInstance"/>
 </beans>
