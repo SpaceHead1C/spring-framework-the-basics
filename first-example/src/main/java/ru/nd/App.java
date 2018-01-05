@@ -1,7 +1,8 @@
 package ru.nd;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ru.nd.beans.Client;
-import ru.nd.loggers.ConsoleEventLogger;
 import ru.nd.loggers.EventLogger;
 
 public class App {
@@ -16,9 +17,12 @@ public class App {
     public App() {}
 
     public static void main(String[] args) {
-        App app = new App(new Client("1", "John Smith"), new ConsoleEventLogger());
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
 
-        app.logEvent("Some event for user 1");
+        App app = (App)ctx.getBean("app");
+
+        app.logEvent("Some event for 1");
+        app.logEvent("Some event for 2");
     }
 
     private void logEvent(String msg) {
