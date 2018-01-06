@@ -1,6 +1,6 @@
 package ru.nd.loggers;
 
-import ru.nd.Event;
+import ru.nd.beans.Event;
 
 public class ConsoleEventLogger implements EventLogger {
     public void logEvent(Event event) {
