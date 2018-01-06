@@ -12,3 +12,4 @@ buildNumber.properties
 !/.mvn/wrapper/maven-wrapper.jar
 first-example/first-example.iml
 first-example/.idea/
+first-example/log.txt
