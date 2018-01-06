@@ -1,4 +1,4 @@
-package ru.nd;
+package ru.nd.beans;
 
 import java.text.DateFormat;
 import java.util.Date;
