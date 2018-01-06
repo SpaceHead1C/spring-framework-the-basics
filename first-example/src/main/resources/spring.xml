@@ -2,12 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="logers.xml"/>
     <bean id="client" class="ru.nd.beans.Client">
         <constructor-arg value="1"/>
         <constructor-arg value="John Smith"/>
+        <property name="greeting" value="Hello there!"/>
     </bean>
-    <bean id="eventLogger" class="ru.nd.loggers.ConsoleEventLogger"/>
-    <bean id="event" class="ru.nd.Event" scope="prototype">
+    <bean id="event" class="ru.nd.beans.Event" scope="prototype">
         <constructor-arg>
             <bean class="java.util.Date"/>
         </constructor-arg>
@@ -16,6 +17,12 @@
     <bean id="app" class="ru.nd.App">
         <constructor-arg ref="client"/>
         <constructor-arg ref="eventLogger"/>
+        <constructor-arg>
+            <map>
+                <entry key="INFO" value-ref="eventLogger"/>
+                <entry key="ERROR" value-ref="combinedEventLogger"/>
+            </map>
+        </constructor-arg>
     </bean>
     <bean id="dateFormat" class="java.text.DateFormat" factory-method="getDateTimeInstance"/>
 </beans>
