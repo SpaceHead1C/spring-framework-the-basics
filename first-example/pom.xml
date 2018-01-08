@@ -10,6 +10,9 @@
 
     <properties>
         <spring.ver>5.0.2.RELEASE</spring.ver>
+        <aspectj.version>1.8.13</aspectj.version>
+        <maven.compiller.source>1.8</maven.compiller.source>
+        <maven.compiller.target>1.8</maven.compiller.target>
     </properties>
 
     <dependencies>
@@ -37,6 +40,11 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
         </dependency>
     </dependencies>
 </project>
