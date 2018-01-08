@@ -19,16 +19,22 @@ public class FileEventLogger implements EventLogger {
 
     public void logEvent(Event event) {
         try {
-            FileUtils.writeStringToFile(file, event.toString(), Charset.defaultCharset(), true);
+            FileUtils.writeStringToFile(file, event.toString() + "\n", "UTF-8", true);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    public String getName() {
+        return "";
+    }
+
     public void init() throws IOException {
         this.file = new File(filename);
         if (!file.exists()) {
-            file.createNewFile();
+            if (!file.createNewFile()) {
+                throw new IOException("Can not create file");
+            }
         }
         if (!file.canWrite()) {
             throw new IOException("File inaccessible for writing");
