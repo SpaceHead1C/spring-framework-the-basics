@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/util
+            http://www.springframework.org/schema/util/spring-util.xsd">
     <bean id="combinedEventLogger" class="ru.nd.loggers.CombinedEventLogger">
         <constructor-arg>
             <list>
@@ -18,4 +22,8 @@
         <constructor-arg value="log.txt"/>
     </bean>
     <bean id="eventLogger" class="ru.nd.loggers.ConsoleEventLogger"/>
+    <util:map id="loggerMap">
+        <entry key="INFO" value-ref="eventLogger"/>
+        <entry key="ERROR" value-ref="combinedEventLogger"/>
+    </util:map>
 </beans>
