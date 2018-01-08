@@ -24,7 +24,7 @@ public class App {
     public App() {}
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
+        ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml", "aspects.xml");
 
         App app = (App)ctx.getBean("app");
 

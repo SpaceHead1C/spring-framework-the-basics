@@ -4,4 +4,5 @@ import ru.nd.beans.Event;
 
 public interface EventLogger {
     void logEvent(Event event);
+    String getName();
 }

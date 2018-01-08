@@ -14,11 +14,14 @@ public class CombinedEventLogger implements EventLogger {
         this.loggers = loggers;
     }
 
-    @Override
     public void logEvent(Event event) {
         for (EventLogger eventLogger : loggers) {
             eventLogger.logEvent(event);
         }
+    }
+
+    public String getName() {
+        return "";
     }
 
     public Collection<EventLogger> getLoggers() {
